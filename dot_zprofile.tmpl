@@ -1,0 +1,12 @@
+# ~/.zprofile — login shells.
+{{- if eq .chezmoi.os "darwin" }}
+
+[ -x /opt/homebrew/bin/brew ] && eval "$(/opt/homebrew/bin/brew shellenv)"
+
+# OrbStack: command-line tools and integration
+source ~/.orbstack/shell/init.zsh 2>/dev/null || :
+{{- else }}
+
+# Homebrew on Linux, if installed
+[ -x /home/linuxbrew/.linuxbrew/bin/brew ] && eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"
+{{- end }}

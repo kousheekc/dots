@@ -1,0 +1,65 @@
+# Mirrors ~/.config/ghostty/config
+
+# Background
+background_opacity 0.9
+{{- if eq .chezmoi.os "darwin" }}
+background_blur 20
+{{- end }}
+
+# Cursor trail
+cursor_trail 1
+cursor_trail_decay 0.1 0.4
+cursor_trail_start_threshold 2
+
+# Window
+font_size 13.0
+window_padding_width 0 5
+remember_window_size no
+initial_window_width 200c
+initial_window_height 60c
+{{- if eq .chezmoi.os "darwin" }}
+hide_window_decorations titlebar-only
+watcher center_window.py
+{{- end }}
+
+{{- if eq .chezmoi.os "darwin" }}
+
+# macOS
+macos_option_as_alt yes
+{{- end }}
+
+# Catppuccin Macchiato, colors taken from Ghostty's bundled theme
+foreground #cad3f5
+background #24273a
+cursor #f4dbd6
+cursor_text_color #24273a
+selection_foreground #24273a
+selection_background #f4dbd6
+
+color0 #494d64
+color1 #ed8796
+color2 #a6da95
+color3 #eed49f
+color4 #8aadf4
+color5 #f5bde6
+color6 #8bd5ca
+color7 #b8c0e0
+color8 #5b6078
+color9 #f2a7b2
+color10 #bde3b0
+color11 #f4e3c1
+color12 #adc5f7
+color13 #f493da
+color14 #a5ded6
+color15 #a5adcb
+
+# kitty-only UI, from the upstream Catppuccin kitty theme
+url_color #f4dbd6
+active_border_color #b7bdf8
+inactive_border_color #6e738d
+bell_border_color #eed49f
+active_tab_foreground #181926
+active_tab_background #c6a0f6
+inactive_tab_foreground #cad3f5
+inactive_tab_background #1e2030
+tab_bar_background #181926

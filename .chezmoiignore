@@ -1,0 +1,22 @@
+README.md
+LICENSE
+
+# Never manage credentials, even by accident
+.ssh/**
+.claude.json
+.codex/auth.json
+.config/gh/hosts.yml
+.netrc
+
+{{- if ne .profile "desktop" }}
+# Headless machines: no terminal emulator config
+.config/kitty/**
+{{- end }}
+
+{{- if eq .chezmoi.os "darwin" }}
+# Linux-only: hands bash logins over to zsh on clusters
+.bash_profile
+{{- else }}
+# macOS-only: kitty window-centering watcher
+.config/kitty/center_window.py
+{{- end }}

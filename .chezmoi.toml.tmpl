@@ -1,0 +1,13 @@
+{{- /* Asked once per machine; answers are stored locally in ~/.config/chezmoi/chezmoi.toml, never in the repo. */ -}}
+{{- $name := promptStringOnce . "name" "Git name" -}}
+{{- $email := promptStringOnce . "email" "Git email" -}}
+{{- $defaultProfile := "server" -}}
+{{- if or (eq .chezmoi.os "darwin") (env "DISPLAY") (env "WAYLAND_DISPLAY") -}}
+{{-   $defaultProfile = "desktop" -}}
+{{- end -}}
+{{- $profile := promptChoiceOnce . "profile" "Machine profile" (list "desktop" "server") $defaultProfile -}}
+
+[data]
+    name = {{ $name | quote }}
+    email = {{ $email | quote }}
+    profile = {{ $profile | quote }}

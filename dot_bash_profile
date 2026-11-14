@@ -1,0 +1,15 @@
+# ~/.bash_profile — Linux only. Hands interactive logins over to zsh on machines
+# where the login shell can't be changed (e.g. clusters without chsh).
+
+# Creating ~/.bash_profile stops bash reading ~/.profile, so read it here
+# (Ubuntu's ~/.profile adds ~/.local/bin to PATH and sources ~/.bashrc).
+if [ -f "$HOME/.profile" ]; then . "$HOME/.profile"
+elif [ -f "$HOME/.bashrc" ]; then . "$HOME/.bashrc"; fi
+
+# Machine-specific setup (module loads, cluster env vars): not tracked in the repo.
+[ -f "$HOME/.bash_profile.local" ] && . "$HOME/.bash_profile.local"
+
+if [ -z "$ZSH_VERSION" ] && [ -t 1 ] && [[ $- == *i* ]]; then
+  ZSH_BIN="$(command -v zsh)"
+  [ -n "$ZSH_BIN" ] && exec "$ZSH_BIN" -l
+fi

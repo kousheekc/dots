@@ -1,0 +1,9 @@
+# ~/.zshenv — read by every zsh (interactive or not). Keep it minimal.
+
+ulimit -S -n 2048
+
+# Same config location on macOS and Linux (lazygit, superfile, etc. otherwise
+# use ~/Library/Application Support on macOS).
+export XDG_CONFIG_HOME="$HOME/.config"
+
+[ -f "$HOME/.cargo/env" ] && . "$HOME/.cargo/env"
