@@ -53,6 +53,7 @@ This repo holds **configs only**: install the tools yourself (checklist below), 
 | kitty (desktop) | `--cask kitty` | [installer](https://sw.kovidgoyal.net/kitty/binary/) | `kitty` | `kitty` | n/a |
 | starship | `starship` | `curl -sS https://starship.rs/install.sh \| sh` | same | `starship` | install script with `-b ~/.local/bin` |
 | Neovim | `neovim` | [release tarball](https://github.com/neovim/neovim/releases) (apt is too old) | `neovim` | `neovim` | release tarball |
+| tree-sitter CLI (needed by nvim-treesitter to build parsers) + a C compiler | `tree-sitter-cli` | `cargo install tree-sitter-cli` or [release binary](https://github.com/tree-sitter/tree-sitter/releases) + `build-essential` | `tree-sitter-cli` + `gcc` | `tree-sitter-cli` + `base-devel` | release binary |
 | fzf, ripgrep, fd, bat, zoxide, eza, btop | all in Homebrew | `fzf ripgrep fd-find bat zoxide eza btop` | same names | same names (`fd`) | [mise](https://mise.jdx.dev) / `pixi global install` |
 | atuin | `atuin` | `curl --proto '=https' -LsSf https://setup.atuin.sh \| sh` | same | `atuin` | install script |
 | lazygit, delta, just, gh | all in Homebrew | `gh` via apt; others via GitHub releases | `lazygit` (COPR), `git-delta`, `just`, `gh` | all in pacman | mise |
@@ -66,7 +67,7 @@ This repo holds **configs only**: install the tools yourself (checklist below), 
 After installing:
 
 - **herdr:** run `herdr integration install claude` to set up the agent-state hook.
-- **Neovim:** the first launch installs plugins at the versions in `lazy-lock.json`.
+- **Neovim:** the first launch installs plugins at the versions in `lazy-lock.json`. After plugin updates, run `:TSUpdate` so treesitter parsers match the new queries (otherwise noice shows `Invalid node type` errors).
 - **Servers:** if you SSH in from kitty, copy its terminfo once: `infocmp -x xterm-kitty | ssh <host> tic -x -`.
 - **Re-run `chezmoi apply`** after installing delta, so its git settings get added.
 
