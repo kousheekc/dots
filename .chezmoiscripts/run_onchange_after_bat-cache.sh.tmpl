@@ -1,0 +1,6 @@
+#!/bin/sh
+# Rebuild bat's theme cache when a custom theme changes.
+# themes hash: {{ include "dot_config/bat/themes/catppuccin-mocha.tmTheme" | sha256sum }}
+for b in bat batcat; do
+  if command -v "$b" >/dev/null 2>&1; then "$b" cache --build >/dev/null; exit 0; fi
+done

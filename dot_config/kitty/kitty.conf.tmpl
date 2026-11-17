@@ -1,7 +1,7 @@
 # Mirrors ~/.config/ghostty/config
 
 # Background
-background_opacity 0.9
+background_opacity 0.85
 {{- if eq .chezmoi.os "darwin" }}
 background_blur 20
 {{- end }}
@@ -10,6 +10,9 @@ background_blur 20
 cursor_trail 1
 cursor_trail_decay 0.1 0.4
 cursor_trail_start_threshold 2
+
+# Bell
+enable_audio_bell no
 
 # Window
 font_size 13.0
@@ -28,38 +31,38 @@ watcher center_window.py
 macos_option_as_alt yes
 {{- end }}
 
-# Catppuccin Macchiato, colors taken from Ghostty's bundled theme
-foreground #cad3f5
-background #24273a
-cursor #f4dbd6
-cursor_text_color #24273a
-selection_foreground #24273a
-selection_background #f4dbd6
+# Catppuccin Mocha on crust (near-black), softened text, colors taken from Ghostty's bundled theme
+foreground #bac2de
+background #11111b
+cursor #f5e0dc
+cursor_text_color #11111b
+selection_foreground #1e1e2e
+selection_background #f5e0dc
 
-color0 #494d64
-color1 #ed8796
-color2 #a6da95
-color3 #eed49f
-color4 #8aadf4
-color5 #f5bde6
-color6 #8bd5ca
-color7 #b8c0e0
-color8 #5b6078
-color9 #f2a7b2
-color10 #bde3b0
-color11 #f4e3c1
-color12 #adc5f7
-color13 #f493da
-color14 #a5ded6
-color15 #a5adcb
+color0 #45475a
+color1 #f38ba8
+color2 #a6e3a1
+color3 #f9e2af
+color4 #89b4fa
+color5 #f5c2e7
+color6 #94e2d5
+color7 #bac2de
+color8 #585b70
+color9 #f7aec2
+color10 #c2ecbf
+color11 #fcd682
+color12 #aeccfc
+color13 #f398da
+color14 #b1eae1
+color15 #a6adc8
 
-# kitty-only UI, from the upstream Catppuccin kitty theme
-url_color #f4dbd6
-active_border_color #b7bdf8
-inactive_border_color #6e738d
-bell_border_color #eed49f
-active_tab_foreground #181926
-active_tab_background #c6a0f6
-inactive_tab_foreground #cad3f5
-inactive_tab_background #1e2030
-tab_bar_background #181926
+# kitty-only UI, from the upstream Catppuccin Mocha kitty theme (bars darkened to crust)
+url_color #f5e0dc
+active_border_color #b4befe
+inactive_border_color #6c7086
+bell_border_color #f9e2af
+active_tab_foreground #11111b
+active_tab_background #cba6f7
+inactive_tab_foreground #bac2de
+inactive_tab_background #11111b
+tab_bar_background #11111b
