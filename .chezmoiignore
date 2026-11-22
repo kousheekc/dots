@@ -9,8 +9,9 @@ LICENSE
 .netrc
 
 {{- if ne .profile "desktop" }}
-# Headless machines: no terminal emulator config
+# Headless machines: no terminal emulator config, no wallpapers
 .config/kitty/**
+wallpapers/**
 {{- end }}
 
 {{- if eq .chezmoi.os "darwin" }}
